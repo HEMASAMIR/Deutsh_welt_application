@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ibrahim Samir Elsayed - Flutter & Mobile Engineer CV</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: #1f2937;
+      background-color: #f8fafc;
+      padding: 40px 20px;
+      line-height: 1.5;
+    }
+    .cv-container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 45px 50px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border: 1px solid #e2e8f0;
+    }
+    header {
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1e3a8a;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 15px;
+      font-weight: 600;
+      color: #2563eb;
+      margin-bottom: 12px;
+    }
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 13px;
+      color: #4b5563;
+      font-weight: 500;
+    }
+    .contact-info a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-bottom: 22px;
+    }
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1e3a8a;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+    }
+    p.summary {
+      font-size: 13.5px;
+      color: #374151;
+      text-align: justify;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      row-gap: 8px;
+      font-size: 13px;
+    }
+    .skill-title {
+      font-weight: 700;
+      color: #1f2937;
+    }
+    .skill-desc {
+      color: #4b5563;
+    }
+    .exp-item {
+      margin-bottom: 16px;
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+    .role {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111827;
+    }
+    .company {
+      color: #2563eb;
+      font-weight: 600;
+    }
+    .date-location {
+      font-size: 12px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+    .stack {
+      font-size: 12px;
+      font-style: italic;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+    ul {
+      padding-left: 18px;
+      font-size: 13px;
+      color: #374151;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    li a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    li a:hover {
+      text-decoration: underline;
+    }
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13.5px;
+    }
+    .edu-degree {
+      font-weight: 700;
+      color: #111827;
+    }
+    .edu-grade {
+      color: #059669;
+      font-weight: 600;
+    }
+    
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .cv-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-container">
+    <header>
+      <h1>Ibrahim Samir Elsayed</h1>
+      <div class="subtitle">Flutter Developer | Mobile Application Developer</div>
+      <div class="contact-info">
+        <span>📍 Cairo, Egypt</span>
+        <span>📞 <a href="https://wa.me/201055673184" target="_blank">+20 105 567 3184</a></span>
+        <span>✉️ <a href="mailto:01055673184hs@gmail.com">01055673184hs@gmail.com</a></span>
+        <span>💻 <a href="https://github.com/HEMASAMIR" target="_blank">github.com/HEMASAMIR</a></span>
+        <span>💼 <a href="https://www.linkedin.com/in/ibrahim-sameer-8b3987241" target="_blank">LinkedIn Profile</a></span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p class="summary">
+        Results-driven <strong>Flutter & Mobile Application Engineer</strong> with <strong>4+ years</strong> of hands-on experience designing, developing, and deploying high-performance cross-platform iOS & Android applications. Expert in <strong>Clean Architecture</strong>, <strong>BLoC/Cubit</strong>, <strong>CI/CD Pipelines (GitHub Actions, Fastlane)</strong>, <strong>Build Flavors</strong>, and <strong>RESTful / Realtime APIs</strong>. Proven track record of shipping <strong>10+ production mobile applications</strong> to the Apple App Store and Google Play Store for enterprise clients across Egypt, Saudi Arabia, Kuwait, and the MENA region.
+      </p>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-title">Languages</div>
+        <div class="skill-desc">Dart, SQL, HTML5/CSS3, JavaScript</div>
+        
+        <div class="skill-title">Framework & Core</div>
+        <div class="skill-desc">Flutter SDK, Android Native (Kotlin/Java basics), iOS (Xcode configuration)</div>
+        
+        <div class="skill-title">State Management</div>
+        <div class="skill-desc">BLoC, Cubit, Provider, GetX</div>
+        
+        <div class="skill-title">Architecture</div>
+        <div class="skill-desc">Clean Architecture, SOLID Principles, MVVM, Repository Pattern, Modular Monorepo</div>
+        
+        <div class="skill-title">DevOps & CI/CD</div>
+        <div class="skill-desc">GitHub Actions, Fastlane, Multi-Environment Build Flavors (Dev/Prod), App Store Connect, Google Play Console</div>
+        
+        <div class="skill-title">Backend & Cloud</div>
+        <div class="skill-desc">Firebase (Auth, FCM Notifications, Firestore, Storage), Supabase, RESTful APIs, WebSockets</div>
+        
+        <div class="skill-title">Databases & Storage</div>
+        <div class="skill-desc">SQLite, Hive, Flutter Secure Storage, SharedPreferences</div>
+        
+        <div class="skill-title">Testing & Tools</div>
+        <div class="skill-desc">Unit Testing, Widget Testing, GetIt DI, Dio, Dartz (Either), Git, GitHub, Postman, Figma</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+      
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="role">Flutter Developer</span> | <span class="company">Vortexa Tech Software</span></div>
+          <div class="date-location">2026 – Present | Cairo, Egypt</div>
+        </div>
+        <div class="stack">Stack: Flutter, Dart, Clean Architecture, BLoC, REST APIs, CI/CD, Supabase, Firebase</div>
+        <ul>
+          <li>
+            <strong>Quick In App:</strong> Architected & developed a production mobile app using Clean Architecture and REST APIs. Configured automated <strong>CI/CD pipelines</strong> using GitHub Actions & Fastlane for seamless releases.
+            <br/>
+            🍏 <a href="https://apps.apple.com/us/app/quickin-app/id6778979967" target="_blank">iOS App Store Link</a> &nbsp;|&nbsp;
+            🤖 <a href="https://play.google.com/store/apps/details?id=com.quickin.app" target="_blank">Google Play Link</a>
+          </li>
+          <li>
+            <strong>Metro Egypt App (مترو مصر بدون إنترنت):</strong> Shipped an offline Cairo Metro navigation & route planning app to the iOS App Store, featuring offline route optimization algorithms, voice assistance, and interactive station maps.
+            <br/>
+            🍏 <a href="https://apps.apple.com/us/app/%D9%85%D8%AA%D8%B1%D9%88-%D9%85%D8%B5%D8%B1-%D8%A8%D8%AF%D9%88%D9%86-%D8%A7%D9%86%D8%AA%D8%B1%D9%86%D8%AA/id6782100362" target="_blank">iOS App Store Link</a>
+          </li>
+          <li><strong>Salla App:</strong> Developed a modern shopping/e-commerce mobile application featuring product catalogs, cart, and checkout.</li>
+          <li>
+            <strong>Deutsch Welt Akademie App:</strong> Engineered a German language-learning platform app with multi-level video streaming, digital books, and automated PDF certificate generation.
+            &nbsp;|&nbsp; 💻 <a href="https://github.com/HEMASAMIR/Deutsh_welt_application" target="_blank">GitHub Repository</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="role">Flutter Developer</span> | <span class="company">AMIT Learning</span></div>
+          <div class="date-location">Mar 2021 – Present | Cairo, Egypt</div>
+        </div>
+        <div class="stack">Stack: Flutter, Dart, BLoC, Cubit, Clean Architecture, REST APIs, Firebase, Supabase</div>
+        <ul>
+          <li>Led cross-platform mobile app development serving <strong>thousands of active users</strong> across iOS and Android.</li>
+          <li>Implemented BLoC/Cubit state management, cutting reported bugs by <strong>20%</strong> and enhancing code maintainability.</li>
+          <li>Integrated RESTful APIs and Supabase for real-time data flow, boosting application responsiveness by <strong>35%</strong>.</li>
+          <li>Mentored 10+ junior developers on Clean Architecture principles and Agile sprint workflows.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="role">Flutter Developer (Freelance)</span> | <span class="company">Incense SA</span></div>
+          <div class="date-location">2023 | Saudi Arabia (Remote)</div>
+        </div>
+        <div class="stack">Stack: Flutter, Dart, Cubit, Clean Architecture, MVVM, GetIt, Supabase, REST APIs</div>
+        <ul>
+          <li>Built & launched a production e-commerce application for a top Saudi fragrance brand.</li>
+          <li>Applied Clean Architecture with GetIt Dependency Injection and Cubit across feature modules.</li>
+          <li>Live Web Application: 🌐 <a href="https://incense-sa.com" target="_blank">incense-sa.com</a></li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="role">Flutter Developer (Freelance)</span> | <span class="company">Rafiq Al-Muslim App</span></div>
+          <div class="date-location">2023 | Global / Remote</div>
+        </div>
+        <div class="stack">Stack: Flutter, Dart, Cubit, Clean Architecture, Hive, Geolocator, Adhan, GetIt, just_audio</div>
+        <ul>
+          <li>Shipped an Islamic companion app (Prayer Times, Quran Audio, Azkar, Qibla Compass, Hijri Calendar) to Google Play & App Store.</li>
+          <li>Implemented GPS-based prayer calculation, offline Azkar via Hive DB, and background Quran audio streaming.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="role">Flutter Developer (Freelance)</span> | <span class="company">Trendy Hair</span></div>
+          <div class="date-location">2022 | Kuwait (Remote)</div>
+        </div>
+        <div class="stack">Stack: Flutter, Dart, Supabase, Cubit, Clean Architecture, MVVM, Dartz</div>
+        <ul>
+          <li>Built a salon product e-commerce & booking application using Clean Architecture and Dartz functional error handling.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div><span class="role">Flutter Developer (Freelance)</span> | <span class="company">Airbnb Clone – Prototype</span></div>
+          <div class="date-location">2023 | Remote</div>
+        </div>
+        <div class="stack">Stack: Flutter, Dart, Cubit, Clean Architecture, Supabase</div>
+        <ul>
+          <li>Developed a property rental application prototype with property browsing, booking flow, and Supabase auth.</li>
+          <li>Live Demo: 🌐 <a href="https://airbnb-prototype-five.vercel.app" target="_blank">airbnb-prototype-five.vercel.app</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Featured Projects</h2>
+      <ul>
+        <li><strong>Goal Zone (E-Commerce App):</strong> Real-time e-commerce app with product discovery, cart, and live order tracking (+25% user retention).</li>
+        <li><strong>Admin Dashboard (Flutter Web/Desktop):</strong> Cross-platform admin panel with RBAC user management, product CRUD, and real-time monitoring.</li>
+        <li><strong>Delivery App (Graduation Project):</strong> Multi-app ecosystem (Customer App, Rider App, Admin Dashboard) with real-time GPS tracking (+30% efficiency gain).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="edu-item">
+        <div><strong>Bachelor of Computer Science</strong> – Menoufia University, Egypt</div>
+        <div>Grade: <span class="edu-grade">Very Good</span> | July 2023</div>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
