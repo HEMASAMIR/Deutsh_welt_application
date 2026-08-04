@@ -274,9 +274,9 @@ flutter build web --release
 - [x] Student Progress Tracking
 - [x] Multi-language Support (AR / DE / EN)
 - [x] Push Notifications
+- [x] Certificate Generation System 🎓
 - [ ] 🔜 AI-powered Grammar Checker
 - [ ] 🔜 Live Sessions Integration
-- [ ] 🔜 Certificate Generation System
 - [ ] 🔜 Gamification & Badges
 - [ ] 🔜 Offline Mode for Downloaded Lessons
 
@@ -295,6 +295,10 @@ flutter build web --release
 **Deutsch Welt Akademie**  
 *مع الهير خالد الحلواني*
 
+<br/>
+
+[![Phone](https://img.shields.io/badge/Phone-01055673184-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/201055673184)
+[![Email](https://img.shields.io/badge/Email-01055673184hs%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:01055673184hs@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-HEMASAMIR-181717?style=for-the-badge&logo=github)](https://github.com/HEMASAMIR)
 
 </div>
@@ -305,6 +309,6 @@ flutter build web --release
 
 **Built with ❤️ using Flutter**
 
-*© 2025 Deutsch Welt Akademie — All Rights Reserved*
+*© 2026 Deutsch Welt Akademie — All Rights Reserved*
 
 </div>
