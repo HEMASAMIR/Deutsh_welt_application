@@ -297,9 +297,20 @@ flutter build web --release
 
 <br/>
 
-[![Phone](https://img.shields.io/badge/Phone-01055673184-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/201055673184)
-[![Email](https://img.shields.io/badge/Email-01055673184hs%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:01055673184hs@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-HEMASAMIR-181717?style=for-the-badge&logo=github)](https://github.com/HEMASAMIR)
+<a href="https://wa.me/201055673184" target="_blank">
+  <img src="https://img.shields.io/badge/WhatsApp-01055673184-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp"/>
+</a>
+<a href="mailto:01055673184hs@gmail.com">
+  <img src="https://img.shields.io/badge/Email-01055673184hs%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+</a>
+<a href="https://github.com/HEMASAMIR" target="_blank">
+  <img src="https://img.shields.io/badge/GitHub-HEMASAMIR-181717?style=for-the-badge&logo=github" alt="GitHub"/>
+</a>
+
+<br/><br/>
+
+📲 **[اضغط هنا للواصل المباشر عبر واتساب (01055673184)](https://wa.me/201055673184)**  
+✉️ **[اضغط هنا لإرسال بريد إلكتروني (01055673184hs@gmail.com)](mailto:01055673184hs@gmail.com)**
 
 </div>
 
