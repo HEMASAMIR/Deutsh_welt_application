@@ -6,12 +6,14 @@ import '../di/service_locator.dart';
 import '../services/storage_service.dart';
 import '../theme/app_colors.dart';
 
+/// A sleek, compact welcome popup that appears on home launch
+/// and automatically fades away smoothly after 2 seconds.
 class WelcomeGreetingDialog {
   static void show(BuildContext context) {
     showDialog(
       context: context,
       barrierDismissible: true,
-      barrierColor: Colors.black.withValues(alpha: 0.55),
+      barrierColor: Colors.black.withValues(alpha: 0.35),
       builder: (ctx) => const _WelcomeDialogWidget(),
     );
   }
@@ -36,12 +38,12 @@ class _WelcomeDialogWidgetState extends State<_WelcomeDialogWidget>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 650),
+      duration: const Duration(milliseconds: 350),
     );
 
     _scaleAnimation = CurvedAnimation(
       parent: _controller,
-      curve: Curves.elasticOut,
+      curve: Curves.easeOutBack,
     );
 
     _fadeAnimation = CurvedAnimation(
@@ -51,8 +53,10 @@ class _WelcomeDialogWidgetState extends State<_WelcomeDialogWidget>
 
     _controller.forward();
 
-    // Auto-close after 2 seconds
-    _autoCloseTimer = Timer(const Duration(seconds: 2), () {
+    // Auto-close smoothly after 2 seconds
+    _autoCloseTimer = Timer(const Duration(milliseconds: 2000), () async {
+      if (!mounted) return;
+      await _controller.reverse();
       if (mounted) Navigator.of(context).pop();
     });
   }
@@ -71,32 +75,17 @@ class _WelcomeDialogWidgetState extends State<_WelcomeDialogWidget>
     if (hour >= 5 && hour < 12) {
       return {
         'title': 'Guten Morgen! ☀️',
-        'sub': isArabic
-            ? 'صباح الخير والنشاط في تطبيق Deutsch Welt! يوم جديد للتميز في اللغة الألمانية 🇩🇪'
-            : 'Guten Morgen bei Deutsch Welt! Ein neuer Tag für Deutsch-Erfolg 🇩🇪',
-        'btn': isArabic ? 'ابدأ رحلة التعلم 🚀' : 'Lernreise starten 🚀',
-        'tag': isArabic ? 'Deutsch Welt • ألمانية بإتقان' : 'Deutsch Welt • Deutsch Meistern',
-        'welcome': isArabic ? 'أهلاً بك' : 'Willkommen',
+        'sub': isArabic ? 'صباح النشاط في Deutsch Welt 🇩🇪' : 'Guten Morgen bei Deutsch Welt 🇩🇪',
       };
     } else if (hour >= 12 && hour < 18) {
       return {
         'title': 'Guten Tag! ☀️',
-        'sub': isArabic
-            ? 'نهار سعيد في تطبيق Deutsch Welt! واصل تطوير مهاراتك اليوم مع Herr خالد الحلواني 🚀'
-            : 'Schönen Tag bei Deutsch Welt! Verbessere deine Fähigkeiten mit Herr Khaled 🚀',
-        'btn': isArabic ? 'ابدأ رحلة التعلم 🚀' : 'Lernreise starten 🚀',
-        'tag': isArabic ? 'Deutsch Welt • ألمانية بإتقان' : 'Deutsch Welt • Deutsch Meistern',
-        'welcome': isArabic ? 'أهلاً بك' : 'Willkommen',
+        'sub': isArabic ? 'نهار سعيد مع Deutsch Welt 🚀' : 'Schönen Tag bei Deutsch Welt 🚀',
       };
     } else {
       return {
         'title': 'Guten Abend! 🌙',
-        'sub': isArabic
-            ? 'مساء الخير في تطبيق Deutsch Welt! وقت مثالي للمراجعة والاسترخاء مع كورساتنا ✨'
-            : 'Guten Abend bei Deutsch Welt! Perfekte Zeit zum Wiederholen & Lernen ✨',
-        'btn': isArabic ? 'ابدأ رحلة التعلم 🚀' : 'Lernreise starten 🚀',
-        'tag': isArabic ? 'Deutsch Welt • ألمانية بإتقان' : 'Deutsch Welt • Deutsch Meistern',
-        'welcome': isArabic ? 'أهلاً بك' : 'Willkommen',
+        'sub': isArabic ? 'مساء الخير، وقت مراجعة ممتع ✨' : 'Guten Abend bei Deutsch Welt ✨',
       };
     }
   }
@@ -118,152 +107,102 @@ class _WelcomeDialogWidgetState extends State<_WelcomeDialogWidget>
           scale: _scaleAnimation,
           child: Material(
             type: MaterialType.transparency,
-            child: Container(
-              width: 320,
-              margin: const EdgeInsets.symmetric(horizontal: 24),
-              padding: const EdgeInsets.all(28),
-              decoration: BoxDecoration(
-                color: cardBg,
-                borderRadius: BorderRadius.circular(32),
-                border: Border.all(
-                  color: isDark
-                      ? AppColors.primaryBlueLight.withValues(alpha: 0.35)
-                      : AppColors.primaryBlue.withValues(alpha: 0.2),
-                  width: 2,
-                ),
-                boxShadow: [
-                  BoxShadow(
+            child: GestureDetector(
+              onTap: () => Navigator.of(context).pop(),
+              child: Container(
+                width: 270,
+                padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+                decoration: BoxDecoration(
+                  color: cardBg,
+                  borderRadius: BorderRadius.circular(22),
+                  border: Border.all(
                     color: isDark
-                        ? AppColors.primaryBlueLight.withValues(alpha: 0.15)
-                        : AppColors.primaryBlue.withValues(alpha: 0.2),
-                    blurRadius: 35,
-                    spreadRadius: 2,
-                    offset: const Offset(0, 12),
+                        ? AppColors.primaryBlueLight.withValues(alpha: 0.3)
+                        : AppColors.primaryBlue.withValues(alpha: 0.15),
+                    width: 1.5,
                   ),
-                ],
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  // Header Badge Icon with Logo
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        width: 90,
-                        height: 90,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: isDark
-                              ? const LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [Color(0xFF60A5FA), Color(0xFF1E3A8A)],
-                                )
-                              : AppColors.primaryGradient,
-                          boxShadow: [
-                            BoxShadow(
-                              color: isDark
-                                  ? AppColors.primaryBlueLight.withValues(alpha: 0.4)
-                                  : AppColors.primaryBlue.withValues(alpha: 0.35),
-                              blurRadius: 20,
-                              offset: const Offset(0, 8),
-                            ),
-                          ],
-                        ),
-                      ),
-                      ClipOval(
-                        child: Image.asset(
-                          'assets/images/khaled.jpg',
-                          width: 78,
-                          height: 78,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-
-                  // German Greeting Title
-                  Text(
-                    greeting['title']!,
-                    textAlign: TextAlign.center,
-                    textDirection: TextDirection.ltr,
-                    style: GoogleFonts.cairo(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: isDark ? AppColors.primaryBlueLight : AppColors.primaryBlue,
-                    ),
-                  ),
-                  if (firstName.isNotEmpty) ...[
-                    const SizedBox(height: 4),
-                    Text(
-                      '${greeting['welcome']}, $firstName 👋',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.cairo(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: isDark ? Colors.white : AppColors.textPrimary,
-                      ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.18),
+                      blurRadius: 24,
+                      offset: const Offset(0, 8),
                     ),
                   ],
-                  const SizedBox(height: 10),
-
-                  // Subtitle
-                  Text(
-                    greeting['sub']!,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.cairo(
-                      fontSize: 13,
-                      height: 1.5,
-                      color: isDark ? Colors.white70 : AppColors.textSecondary,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Small Avatar Badge
+                    Container(
+                      width: 52,
+                      height: 52,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: isDark
+                            ? const LinearGradient(
+                                colors: [Color(0xFF60A5FA), Color(0xFF1E3A8A)],
+                              )
+                            : AppColors.primaryGradient,
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.primaryBlue.withValues(alpha: 0.25),
+                            blurRadius: 10,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/images/khaled.jpg',
+                          width: 48,
+                          height: 48,
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, __, ___) => const Icon(
+                            Icons.school_rounded,
+                            color: Colors.white,
+                            size: 26,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 10),
 
-                  const SizedBox(height: 24),
-
-                  // Brand Pill Tag
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-                    decoration: BoxDecoration(
-                      color: isDark
-                          ? AppColors.primaryBlueLight.withValues(alpha: 0.15)
-                          : AppColors.primaryBlue.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      greeting['tag']!,
+                    // Greeting Title
+                    Text(
+                      greeting['title']!,
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.ltr,
                       style: GoogleFonts.cairo(
-                        fontSize: 11,
+                        fontSize: 17,
                         fontWeight: FontWeight.bold,
                         color: isDark ? AppColors.primaryBlueLight : AppColors.primaryBlue,
                       ),
                     ),
-                  ),
-
-                  const SizedBox(height: 24),
-
-                  // Primary Action Button
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: isDark ? AppColors.primaryBlueLight : AppColors.primaryBlue,
-                      foregroundColor: isDark ? AppColors.primaryBlueDark : Colors.white,
-                      minimumSize: const Size(double.infinity, 50),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                    if (firstName.isNotEmpty) ...[
+                      const SizedBox(height: 2),
+                      Text(
+                        'أهلاً بك، $firstName 👋',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.cairo(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: isDark ? Colors.white : AppColors.textPrimary,
+                        ),
                       ),
-                      elevation: 0,
-                    ),
-                    onPressed: () => Navigator.pop(context),
-                    child: Text(
-                      greeting['btn']!,
+                    ],
+                    const SizedBox(height: 4),
+
+                    // Short Subtitle
+                    Text(
+                      greeting['sub']!,
+                      textAlign: TextAlign.center,
                       style: GoogleFonts.cairo(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 11.5,
+                        color: isDark ? Colors.white70 : AppColors.textSecondary,
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
