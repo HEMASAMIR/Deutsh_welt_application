@@ -13,6 +13,7 @@ import '../../../../core/router/app_routes.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/custom_shimmer.dart';
 import '../../../../core/widgets/custom_snack_bar.dart';
+import '../../../../core/widgets/certificate_dialog.dart';
 import '../../data/models/video_model.dart';
 import '../cubit/videos/videos_cubit.dart';
 
@@ -506,22 +507,16 @@ class _ProgressCard extends StatelessWidget {
             },
           ),
           if (pct >= 100) ...[
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.emoji_events_rounded,
-                    color: Colors.amber, size: 18),
-                const SizedBox(width: 6),
-                Text(
-                  'Herzlichen Glückwunsch! أتممت الكورس 🎉',
-                  style: GoogleFonts.cairo(
-                    color: AppColors.success,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 13,
-                  ),
+            const SizedBox(height: 14),
+            // ── Certificate download button ─────────────────────────────
+            Builder(
+              builder: (ctx) => BounceInUp(
+                duration: const Duration(milliseconds: 700),
+                child: _CertificateBannerButton(
+                  levelName: levelName,
+                  onTap: () => CertificateDialog.show(ctx, levelName),
                 ),
-              ],
+              ),
             ),
           ],
         ],
@@ -1345,6 +1340,122 @@ class _CourseGroupHeaderCard extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+// ─── Certificate Banner Button ────────────────────────────────────────────────
+/// Shown inside the _ProgressCard when the student reaches 100%.
+/// A pulsing gold button that opens the CertificateDialog.
+class _CertificateBannerButton extends StatefulWidget {
+  final String levelName;
+  final VoidCallback onTap;
+
+  const _CertificateBannerButton({
+    required this.levelName,
+    required this.onTap,
+  });
+
+  @override
+  State<_CertificateBannerButton> createState() =>
+      _CertificateBannerButtonState();
+}
+
+class _CertificateBannerButtonState extends State<_CertificateBannerButton>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _pulse;
+  late final Animation<double> _scale;
+
+  @override
+  void initState() {
+    super.initState();
+    _pulse = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 900),
+    )..repeat(reverse: true);
+    _scale = Tween<double>(begin: 1.0, end: 1.04).animate(
+      CurvedAnimation(parent: _pulse, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _pulse.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ScaleTransition(
+      scale: _scale,
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: Container(
+          width: double.infinity,
+          padding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color(0xFFD4AF37), Color(0xFFF5E6A3), Color(0xFFD4AF37)],
+            ),
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xFFD4AF37).withValues(alpha: 0.45),
+                blurRadius: 20,
+                offset: const Offset(0, 6),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.workspace_premium_rounded,
+                color: Color(0xFF1E3A8A),
+                size: 26,
+              ),
+              const SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'شهادتك جاهزة! 🏅',
+                    style: GoogleFonts.cairo(
+                      color: const Color(0xFF1E3A8A),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
+                  ),
+                  Text(
+                    'اضغط لتحميل شهادة مستوى ${widget.levelName}',
+                    style: GoogleFonts.cairo(
+                      color: const Color(0xFF1E3A8A).withValues(alpha: 0.75),
+                      fontSize: 11,
+                    ),
+                  ),
+                ],
+              ),
+              const Spacer(),
+              Container(
+                padding: const EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF1E3A8A).withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Icon(
+                  Icons.download_rounded,
+                  color: Color(0xFF1E3A8A),
+                  size: 20,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
