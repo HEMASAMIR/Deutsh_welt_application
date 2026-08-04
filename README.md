@@ -288,12 +288,16 @@ flutter build web --release
 
 ---
 
-## 📞 Contact
+## 👨‍💻 Developer & Contact
 
 <div align="center">
 
-**Deutsch Welt Akademie**  
-*مع الهير خالد الحلواني*
+<img src="assets/images/developer.jpg" alt="Eng. Ebrahim Samir" width="220" style="border-radius: 20px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);" />
+
+<br/><br/>
+
+### **Eng. Ebrahim Samir**
+*Full-Stack Software Engineer & Lead Developer*
 
 <br/>
 
@@ -309,7 +313,7 @@ flutter build web --release
 
 <br/><br/>
 
-📲 **[اضغط هنا للواصل المباشر عبر واتساب (01055673184)](https://wa.me/201055673184)**  
+📲 **[اضغط هنا للتواصل المباشر عبر واتساب (01055673184)](https://wa.me/201055673184)**  
 ✉️ **[اضغط هنا لإرسال بريد إلكتروني (01055673184hs@gmail.com)](mailto:01055673184hs@gmail.com)**
 
 </div>
