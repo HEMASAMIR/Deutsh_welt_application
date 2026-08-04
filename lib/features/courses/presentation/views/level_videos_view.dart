@@ -160,7 +160,14 @@ class _LevelVideosBodyState extends State<_LevelVideosBody>
     _watchedVideoIds.add(videoId);
     final prefs = await SharedPreferences.getInstance();
     await prefs.setStringList(_prefsKey, _watchedVideoIds.toList());
-    if (mounted) setState(() {});
+    if (mounted) {
+      setState(() {});
+      CustomSnackBar.show(
+        context,
+        message: '🎉 Gut gemacht! إنجاز رائع، كمل يا بطل ⚡',
+        type: SnackBarType.success,
+      );
+    }
   }
 
   @override
