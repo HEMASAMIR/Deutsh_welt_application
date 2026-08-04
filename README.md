@@ -297,7 +297,19 @@ flutter build web --release
 <br/><br/>
 
 ### **Eng. Ebrahim Samir**
-*Full-Stack Software Engineer & Lead Developer*
+*Full-Stack Software Engineer & App Specialist*
+
+<br/>
+
+[![Flutter](https://img.shields.io/badge/Flutter-Clean_Architecture-02569B?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev)
+[![BLoC](https://img.shields.io/badge/State_Management-BLoC%2FCubit-8B5CF6?style=flat-square&logo=bloc&logoColor=white)](https://bloclibrary.dev)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions%20%7C%20Fastlane-2088FF?style=flat-square&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+[![Flavors](https://img.shields.io/badge/Environments-Build_Flavors_(Dev%2FProd)-FF6F00?style=flat-square&logo=dart&logoColor=white)](https://flutter.dev)
+[![Testing](https://img.shields.io/badge/Quality-Unit_%26_Widget_Testing-059669?style=flat-square&logo=dart&logoColor=white)](https://flutter.dev)
+
+<br/>
+
+💼 **Open for Freelance Projects & Software Engineering Roles**
 
 <br/>
 
@@ -314,7 +326,7 @@ flutter build web --release
 <br/><br/>
 
 📲 **[اضغط هنا للتواصل المباشر عبر واتساب (01055673184)](https://wa.me/201055673184)**  
-✉️ **[اضغط هنا لإرسال بريد إلكتروني (01055673184hs@gmail.com)](mailto:01055673184hs@gmail.com)**
+✉️ **[اضغط هنا لإرسال بريد إلكتروني للتوظيف (01055673184hs@gmail.com)](mailto:01055673184hs@gmail.com)**
 
 </div>
 
